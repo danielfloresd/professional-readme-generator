@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link semantic-ui 2.5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+
+    <title>Professional README Generator</title>
+</head>
+
+<body>
+    <header>
+        <div class="ui inverted vertical masthead center aligned segment" id="hero">
+            <div class="ui text container">
+                <a href="./index.html">
+                    <i class="github icon" style="color: #d75788;"></i>
+                    <h1 class="ui inverted header">
+                        Professional README Generator
+                    </h1>
+                </a>
+                <h2>Generate your project README.md file with little hassle</h2>
+            </div>
+        </div>
+        <div class="ui text menu" id="menu-bar-top">
+            <div class="item left">
+                <!-- <a href="./index.html">
+                    <i class="home icon" alt="Home"></i>
+                    Home
+                </a> -->
+                <a href="./archive.html" alt="My Archiver">
+                    <i class="archive icon"></i>
+                    My Archive
+                </a>
+                <!-- <a href="./calendar.html" alt="My Calendar">
+                    <i class="calendar icon"></i>
+                    My Calendar
+                </a> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Add form to generate README.md file -->
+        <div class="ui container">
+            <div class="ui form">
+                <div class="field">
+                    <label for="project-title">Project Title</label>
+                    <input type="text" name="project-title" id="project-title" placeholder="Project Title">
+                </div>
+                <div class="field">
+                    <label for="project-description">Project Description</label>
+                    <textarea name="project-description" id="project-description" cols="15" rows="7"
+                        placeholder="Project Description"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-installation">Project Installation</label>
+                    <textarea name="project-installation" id="project-installation" cols="15" rows="7"
+                        placeholder="Project Installation"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-usage">Project Usage</label>
+                    <textarea name="project-usage" id="project-usage" cols="15" rows="7"
+                        placeholder="Project Usage"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-license">Project License</label>
+                    <input type="text" name="project-license" id="project-license" placeholder="Project License">
+                </div>
+                <div class="field">
+                    <label for="project-license">Project Programming Language</label>
+                    <input type="text" name="project-programming-language" id="project-programming-lang"
+                        placeholder="Project Programming Language">
+                </div>
+                <div class="field">
+                    <label for="project-contributing">Project Contributing</label>
+                    <textarea name="project-contributing" id="project-contributing" cols="15" rows="7"
+                        placeholder="Project Contributing"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-tests">Project Tests</label>
+                    <textarea name="project-tests" id="project-tests" cols="15" rows="7"
+                        placeholder="Project Tests"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-questions">Project Questions</label>
+                    <textarea name="project-questions" id="project-questions" cols="15" rows="7"
+                        placeholder="Project Questions"></textarea>
+                </div>
+                <div class="field">
+                    <label for="project-username">Project Username</label>
+                    <input type="text" name="project-username" id="project-username" placeholder="Project Username">
+                </div>
+                <div class="field">
+                    <label for="project-email">Project Email</label>
+                    <input type="text" name="project-email" id="project-email" placeholder="Project Email">
+                </div>
+                <div class="actions">
+                    <button class="ui button" type="submit" id="generate-readme">Generate README.md</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<!-- Create Preview Modal View for README.md markdown and html -->
+<div class="ui fullscreen modal" id="preview-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Preview README.md
+    </div>
+    <div class="content">
+        <!-- Add 2 columns for markdown and html preview -->
+        <div class="ui stackable two column grid">
+            <div class="column">
+                <h4 class="ui dividing header">Markdown</h4>
+                <div class="ui segment">
+                    <div class="ui form">
+                        <div class="field">
+                            <textarea name="markdown-preview" id="markdown-preview" cols="15" rows="60"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h4 class="ui dividing header">Preview</h4>
+                <div class="ui segment">
+                    <div class="ui form">
+                        <div class="field">
+                            <div name="html-preview" id="html-preview" cols="40" rows="60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui download button" type="submit" id="download-readme">
+            Download
+        </div>
+        <div class="ui black deny button">
+            Close
+        </div>
+    </div>
+</div>
+
+<!-- Add showdown.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+<!-- Add jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Add semantic-ui.js from cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+    integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Add script.js -->
+<!-- <script src="./script.js"></script> -->
+<script src="./web-readme.js"></script>
+
+</html>
