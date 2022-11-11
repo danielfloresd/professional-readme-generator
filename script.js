@@ -20,24 +20,11 @@ $("#generate-readme").on("click", function () {
     // Get value for project questions
     var questions = $("#project-questions").val();
     // Get value for project username
-    var username = $("#project-username").val();
+    var github = $("#project-username").val();
     // Get value for project email
     var email = $("#project-email").val();
-    // Get value for project image
-    var image = $("#project-image").val();
-    // Get value for project github
-    var github = $("#project-github").val();
+ 
     // Get value for project linkedin
-    var linkedin = $("#project-linkedin").val();
-    // Get value for project twitter
-    var twitter = $("#project-twitter").val();
-    // Get value for project facebook
-    var facebook = $("#project-facebook").val();
-    // Get value for project instagram
-    var instagram = $("#project-instagram").val();
-    // Get value for project youtube
-    var youtube = $("#project-youtube").val();
-    // Get value for project website
     var website = $("#project-website").val();
     // Generate README.md
 
@@ -57,20 +44,25 @@ $("#generate-readme").on("click", function () {
         contributing: contributing,
         tests: tests,
         questions: questions,
-        username: username,
         email: email,
-        image: image,
         github: github,
-        linkedin: linkedin,
-        twitter: twitter,
-        facebook: facebook,
-        instagram: instagram,
-        youtube: youtube,
-        website: website
     };
-    var readme = generateReadmeHTML(data);
-    // Print hello world
+    // Check that all fields are filled out
+    if (title === "" || description === "" || installation === "" || usage === "" || license === "" || contributing === "" || tests === "" || questions === "" || username === "" || email === "" || github === "" || website === "") {
+        // Make a list of the missing fields
+        var missingFields = [];
+        console.log("data", data);
+    //  Iterate through the data object and check if the value is empty
+        for (var key in data) {
+            if (data[key] === "") {
+                missingFields.push(key);
+            }
+        }
 
+        alert("Please fill out all fields: " + missingFields.join(", "));
+    } else {
+        var readme = generateReadmeHTML(data);
+    }
 });
 
 
@@ -79,7 +71,6 @@ function generateReadmeHTML(data) {
     // Create README.md file
     // Add input to data map
     // Create README.md file
-console.log(data);
     markdown = generateMarkdown(data);
     var html = convertMarkdownToHtml(markdown);
     console.log(html);

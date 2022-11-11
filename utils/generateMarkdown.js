@@ -5,17 +5,17 @@ function isNode() {
 
 // Requiere the fs module
 
-const fs = isNode()? require('fs') : null;
+const fs = isNode() ? require('fs') : null;
 
 
 function renderBadge(type, name, color) {
-    if (!name)
-        return "";
+  if (!name)
+    return "";
 
-    let aType = type || 'badge';
-    let aName = name;
-    let aColor = color || 'black';
-    return `![GitHub ${type}](https://img.shields.io/badge/${aType}-${aName}-${aColor}.svg)`;
+  let aType = type || 'badge';
+  let aName = name;
+  let aColor = color || 'black';
+  return `![GitHub ${type}](https://img.shields.io/badge/${aType}-${aName}-${aColor}.svg)`;
 }
 
 function renderTableOfContents(title, description, installation, usage, license, contributing, tests, questions, website, programming_languages) {
@@ -30,16 +30,16 @@ function renderTableOfContents(title, description, installation, usage, license,
   * [Website](#🌐website)
   * [Programming Languages](#👨‍💻programming-languages)
 `;
-    return tableOfContents;
+  return tableOfContents;
 }
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    if (license !== "None") {
-        return `[![badge-license](https://badgen.net/badge/license/${license}/blue)](https://choosealicense.com/licenses/${license.toLowerCase()})`;
-    }
-    return "";
+  if (license !== "None") {
+    return `[![badge-license](https://badgen.net/badge/license/${license}/blue)](https://choosealicense.com/licenses/${license.toLowerCase()})`;
+  }
+  return "";
 }
 
 // TODO: Create a function that returns the license link
@@ -60,7 +60,7 @@ function renderSection(section, content) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   // Read the license file and return the contents
-      return `## 📛License    
+  return `## 📛License    
     Project license: ${license}   
 ${renderLicenseFile(license)}   
       
@@ -68,30 +68,48 @@ ${renderLicenseLink(license)}
 `;
 }
 
+// function loadText(url) {
+//   const response = await fetch(url);
+//   const text = await response.text();
+//   console.log("respose", text);
+//   return text;
+// }
 function renderLicenseFile(license) {
   // <details><summary><b>View License</b></summary>${renderLicenseFile(license)}</details></br>
-  if (isNode()){
+
+  if (isNode()) {
     let text = fs.readFileSync(`./utils/licenses/${license}`, 'utf8');
     return `<details><summary><b>View License</b></summary>${text}</details></br>`
-  } else { 
+  } else {
+    // Load the license file from local host
+    const url = `utils/licenses/${license}`;
+    // Get url using XMLHttpRequest
+    var request = new XMLHttpRequest();
+    request.open('GET', url, false);
+    // Set timeout to 5 seconds
+    // Send request
+    request.send(null);
+    if (request.status === 200) {
+      return `<details><summary><b>View License</b></summary>${request.responseText}</details></br>`
+    }
     return "";
-  };
+  }
 }
 
 function renderQuestionsSection(questions, github, email) {
-      return `## ❓Questions   
+  return `## ❓Questions   
     ${questions}    
   You can contact me with the information below:   
 * [${renderBadge('github:', github, 'black')}](https://github.com/${github})   
 * [![email](https://img.shields.io/badge/email:-${email}-blue.svg)](mailto:${email})    
     `;
 }
-  
+
 
 // function generateMarkdown({ title, description, installation, usage, license, contributing, tests, questions, programming_languages, website, github, email }) {
 function generateMarkdown(data) {
-    let { title, description, installation, usage, license, contributing, tests, questions, programming_languages, website, github, email } = data;
-    let markdown =  `# ${title}
+  let { title, description, installation, usage, license, contributing, tests, questions, programming_languages, website, github, email } = data;
+  let markdown = `# ${title}
 ${renderLicenseBadge(license)}
 
 ## Description   
@@ -105,10 +123,11 @@ ${renderLicenseSection(license)}
 ${renderSection('🤝Contributing', contributing)}
 ${renderSection('📃Tests', tests)}
 ${renderQuestionsSection(questions, github, email)}    
-${renderSection('🌐Website','Please visit my website at:')}   
+${renderSection('🌐Website', 'Please visit my website at:')}   
+
 [${website}](${website})  
 
-${renderSection('👨‍💻Programming Languages','This project was created with: ' + programming_languages.join(","))}
+${renderSection('👨‍💻Programming Languages', 'This project was created with: ' + programming_languages.join(","))}
 `;
   return markdown;
 }
@@ -120,4 +139,6 @@ function convertMarkdownToHtml(markdown) {
   return html;
 }
 
-module.exports = { generateMarkdown };
+if (isNode()) {
+  module.exports = { generateMarkdown };
+}
