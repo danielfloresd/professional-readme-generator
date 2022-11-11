@@ -24,76 +24,81 @@
                 <h2>Generate your project README.md file with little hassle</h2>
             </div>
         </div>
-        <div class="ui text menu" id="menu-bar-top">
-            <div class="item left">
-                <!-- <a href="./index.html">
-                    <i class="home icon" alt="Home"></i>
-                    Home
-                </a> -->
-                <a href="./archive.html" alt="My Archiver">
-                    <i class="archive icon"></i>
-                    My Archive
-                </a>
-                <!-- <a href="./calendar.html" alt="My Calendar">
-                    <i class="calendar icon"></i>
-                    My Calendar
-                </a> -->
-            </div>
-        </div>
     </header>
     <main>
         <!-- Add form to generate README.md file -->
         <div class="ui container">
             <div class="ui form">
                 <div class="field">
-                    <label for="project-title">Project Title</label>
+                    <label for="project-title">Title</label>
                     <input type="text" name="project-title" id="project-title" placeholder="Project Title">
                 </div>
                 <div class="field">
-                    <label for="project-description">Project Description</label>
+                    <label for="project-description">Description</label>
                     <textarea name="project-description" id="project-description" cols="15" rows="7"
                         placeholder="Project Description"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-installation">Project Installation</label>
+                    <label for="project-installation">Installation</label>
                     <textarea name="project-installation" id="project-installation" cols="15" rows="7"
                         placeholder="Project Installation"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-usage">Project Usage</label>
+                    <label for="project-usage">Usage</label>
                     <textarea name="project-usage" id="project-usage" cols="15" rows="7"
                         placeholder="Project Usage"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-license">Project License</label>
-                    <input type="text" name="project-license" id="project-license" placeholder="Project License">
+                    <label for="project-license">License</label>
+                    <!-- Add combo box to select license -->
+                    <select name="license" id="project-license">
+                        <option value="MIT">MIT</option>
+                        <option value="Apache-2.0">Apache</option>
+                        <option value="GPL-3.0">GPL</option>
+                        <option value="BSL-1.0">BSL</option>
+                        <option value="unlicense">Unlicense</option>
+                    </select>
                 </div>
                 <div class="field">
-                    <label for="project-license">Project Programming Language</label>
-                    <input type="text" name="project-programming-language" id="project-programming-lang"
-                        placeholder="Project Programming Language">
+                    <div class="ui celled relaxed list">
+                        <label for="project-license">Programming Language</label>
+                        <!-- Add combobox to select multiple programming language -->
+                        <div class="item">
+                            <input name="programming_lang" type="checkbox" value="javascript">JavaScript</input>
+                        </div>
+                        <div class="item">
+                            <input name="programming_lang" type="checkbox" value="html">HTML</input>
+                        </div>
+                        <div class="item">
+                            <input name="programming_lang" type="checkbox" value="css">CSS</input>
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
-                    <label for="project-contributing">Project Contributing</label>
+                    <label for="project-contributing">Contributing</label>
                     <textarea name="project-contributing" id="project-contributing" cols="15" rows="7"
                         placeholder="Project Contributing"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-tests">Project Tests</label>
+                    <label for="project-tests">Tests</label>
                     <textarea name="project-tests" id="project-tests" cols="15" rows="7"
                         placeholder="Project Tests"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-questions">Project Questions</label>
+                    <label for="project-questions">Questions</label>
                     <textarea name="project-questions" id="project-questions" cols="15" rows="7"
                         placeholder="Project Questions"></textarea>
                 </div>
                 <div class="field">
-                    <label for="project-username">Project Username</label>
+                    <label for="project-website">Website</label>
+                    <input type="text" name="project-website" id="project-website" placeholder="Project Website">
+                </div>
+                <div class="field">
+                    <label for="project-username">Username</label>
                     <input type="text" name="project-username" id="project-username" placeholder="Project Username">
                 </div>
                 <div class="field">
-                    <label for="project-email">Project Email</label>
+                    <label for="project-email">Email</label>
                     <input type="text" name="project-email" id="project-email" placeholder="Project Email">
                 </div>
                 <div class="actions">
@@ -155,8 +160,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
     integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Add readme.js-->
+<script src="./utils/generateMarkdown.js"></script>
 <!-- Add script.js -->
-<!-- <script src="./script.js"></script> -->
-<script src="./web-readme.js"></script>
+<script src="./script.js"></script>
 
 </html>

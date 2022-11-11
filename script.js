@@ -1,134 +1,103 @@
-// Generate README.md file from form input
-function generateMarkdown(data) {
-    return `# ${data.title}
-    
-    ## Description
-    
-    ${data.description}
-    
-    ## Table of Contents
-    
-    * [Installation](#installation)
-    
-    * [Usage](#usage)
-    
-    * [License](#license)
-    
-    * [Contributing](#contributing)
-    
-    * [Tests](#tests)
-    
-    * [Questions](#questions)
-    
-    ## Installation
-    
-    ${data.installation}
-    
-    ## Usage
-    
-    ${data.usage}
-    
-    ## License
-    
-    ${data.license}
-    
-    ## Contributing
-    
-    ${data.contributing}
-    
-    ## Tests
-    
-    ${data.tests}
-    
-    ## Questions
-    
-    ${data.questions}
-    
-    `;
-}
+// const { fileURLToPath } = require("url");
+var markdown = "";
+$("#generate-readme").on("click", function () {
+    // Get value for project title
+    var title = $("#project-title").val();
+    // Get value for project description
+    var description = $("#project-description").val();
+    // Get value for project installation
+    var installation = $("#project-installation").val();
+    // Get value for project usage
+    var usage = $("#project-usage").val();
+    // Get value for project license
+    var license = $("#project-license").val();
+    // Get value for project license
+    // var programming_lang = $("#project-programming-lang").val();
+    // Get value for project contributing
+    var contributing = $("#project-contributing").val();
+    // Get value for project tests
+    var tests = $("#project-tests").val();
+    // Get value for project questions
+    var questions = $("#project-questions").val();
+    // Get value for project username
+    var username = $("#project-username").val();
+    // Get value for project email
+    var email = $("#project-email").val();
+    // Get value for project image
+    var image = $("#project-image").val();
+    // Get value for project github
+    var github = $("#project-github").val();
+    // Get value for project linkedin
+    var linkedin = $("#project-linkedin").val();
+    // Get value for project twitter
+    var twitter = $("#project-twitter").val();
+    // Get value for project facebook
+    var facebook = $("#project-facebook").val();
+    // Get value for project instagram
+    var instagram = $("#project-instagram").val();
+    // Get value for project youtube
+    var youtube = $("#project-youtube").val();
+    // Get value for project website
+    var website = $("#project-website").val();
+    // Generate README.md
 
-// module.exports = generateMarkdown;
-
-// Path: professional-readme-generator\index.js
-// Import modules
-const inquirer = require("inquirer");
-const fs = require("fs");
-const generateMarkdown = require("./script.js");
-
-// Array of questions for user input
-const questions = [
-    {
-        type: "input",
-        name: "title",
-        message: "What is the title of your project?"
-    },
-    {
-        type: "input",
-        name: "description",
-        message: "Please provide a description of your project."
-    },
-    {
-        type: "input",
-        name: "installation",
-        message: "Please provide installation instructions for your project."
-    },
-    {
-        type: "input",
-        name: "usage",
-        message: "Please provide usage information for your project."
-    },
-    {
-        type: "input",
-        name: "license",
-        message: "Please provide license information for your project."
-    },
-    {
-        type: "input",
-        name: "contributing",
-        message: "Please provide contribution guidelines for your project."
-    },
-    {
-        type: "input",
-        name: "tests",
-        message: "Please provide test instructions for your project."
-    },
-    {
-        type: "input",
-        name: "questions",
-        message: "Please provide your contact information for questions about your project."
-    }
-];
-
-// Function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-            throw err;
-        }
-        console.log("README.md file generated!");
+    // Get value for project programming languages checkboxes
+    var programming_lang = [];
+    $.each($("input[name='programming_lang']:checked"), function () {
+        programming_lang.push($(this).val());
     });
+
+    var data = {
+        title: title,
+        description: description,
+        installation: installation,
+        usage: usage,
+        license: license,
+        programming_languages: programming_lang,
+        contributing: contributing,
+        tests: tests,
+        questions: questions,
+        username: username,
+        email: email,
+        image: image,
+        github: github,
+        linkedin: linkedin,
+        twitter: twitter,
+        facebook: facebook,
+        instagram: instagram,
+        youtube: youtube,
+        website: website
+    };
+    var readme = generateReadmeHTML(data);
+    // Print hello world
+
+});
+
+
+// Function to generate README.md
+function generateReadmeHTML(data) {
+    // Create README.md file
+    // Add input to data map
+    // Create README.md file
+console.log(data);
+    markdown = generateMarkdown(data);
+    var html = convertMarkdownToHtml(markdown);
+    console.log(html);
+
+    $("#markdown-preview").text(markdown);
+    $("#html-preview").html(html);
+
+    $("#preview-modal").modal("show");
 }
 
-// Function to initialize program
-function init() {
-    inquirer.prompt(questions).then(answers => {
-        writeToFile("README.md", generateMarkdown(answers));
-    });
-}
 
-// Function call to initialize program
-init();
-
-// Path: professional-readme-generator\package.json
-// {
-//     "name": "professional-readme-generator",
-//     "version": "1.0.0",
-//     "description": "A command-line application that dynamically generates a professional README.md file from a user's input using the Inquirer package.",
-//     "main": "index.js",
-//     "scripts": {
-//         "test": "echo \"Error: no test specified\" && exit 1"
-//     },
-//     "repository": {
-//         "type": "git",
-//         "url": "git+
-// [...]   
+$("#download-readme").on("click", function () {
+    // Add download markdown as a file
+    var element = document.createElement("a");
+    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(markdown));
+    element.setAttribute("download", "README.md");
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+});
