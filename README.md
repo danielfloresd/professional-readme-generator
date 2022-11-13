@@ -12,6 +12,7 @@
   * [Description](#description)
   * [Installation](#🛠️installation)
   * [Usage](#💻usage)
+  * [Dependencies](#🧩dependencies)
   * [License](#📛license)
   * [Contributing](#🤝contributing)
   * [Tests](#📃tests)
@@ -24,8 +25,11 @@
       
 ## 💻Usage    
     After installing all dependencies run $node.js index.js. The application can also be using aby opening index.html with your favorite web browser
+<img src="./assets/images/nodejs.PNG"><img>  
 
-<img src="./assets/images/nodejs.PNG"><img>   
+## 🧩Dependencies   
+* [Inquirer.js](https://www.npmjs.com/package/inquirer)
+* [Showdown.js](https://www.npmjs.com/package/showdown)
 
 ## 📛License    
     Project license: MIT   
