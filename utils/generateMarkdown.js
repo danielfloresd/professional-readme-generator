@@ -52,7 +52,7 @@ function renderLicenseLink(license) {
 
 function renderSection(section, content) {
   return `## ${section}    
-    ${content}   
+<p>${content}</p>   
       `;
 }
 
@@ -68,12 +68,6 @@ ${renderLicenseLink(license)}
 `;
 }
 
-// function loadText(url) {
-//   const response = await fetch(url);
-//   const text = await response.text();
-//   console.log("respose", text);
-//   return text;
-// }
 function renderLicenseFile(license) {
   // <details><summary><b>View License</b></summary>${renderLicenseFile(license)}</details></br>
 
@@ -86,7 +80,6 @@ function renderLicenseFile(license) {
     // Get url using XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', url, false);
-    // Set timeout to 5 seconds
     // Send request
     request.send(null);
     if (request.status === 200) {
@@ -98,9 +91,10 @@ function renderLicenseFile(license) {
 
 function renderQuestionsSection(questions, github, email) {
   return `## ❓Questions   
-    ${questions}    
-  You can contact me with the information below:   
-* [${renderBadge('github:', github, 'black')}](https://github.com/${github})   
+<p>${questions}</p>
+You can contact me with the information below:   
+
+* [${renderBadge('github:', github, 'black')}](https://github.com/${github})    
 * [![email](https://img.shields.io/badge/email:-${email}-blue.svg)](mailto:${email})    
     `;
 }
@@ -109,11 +103,11 @@ function renderQuestionsSection(questions, github, email) {
 // function generateMarkdown({ title, description, installation, usage, license, contributing, tests, questions, programming_languages, website, github, email }) {
 function generateMarkdown(data) {
   let { title, description, installation, usage, license, contributing, tests, questions, programming_languages, website, github, email } = data;
-  let markdown = `# ${title}
+  let markdown = `# ${title}    
 ${renderLicenseBadge(license)}
 
 ## Description   
-    ${description}   
+<p>${description}</p>   
 
 ## Table of contents
 ${renderTableOfContents(title, description, installation, usage, license, contributing, tests, questions, website, programming_languages)}
@@ -127,7 +121,7 @@ ${renderSection('🌐Website', 'Please visit:')}
 
 [${website}](${website})  
 
-${renderSection('👨‍💻Programming Languages', 'This project was created with: ' + programming_languages.join(","))}
+${renderSection('👨‍💻Programming Languages', 'This project was created with: ' + programming_languages.join("/"))}
 `;
   return markdown;
 }

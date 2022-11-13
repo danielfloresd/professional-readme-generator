@@ -171,6 +171,12 @@ const questions = [
                 return false;
             }
         }
+    },
+    {
+        type: 'input',
+        name: 'filename',
+        message: 'Enter file name.',
+        default: './dist/README.md'
     }
 ];
 
@@ -186,13 +192,14 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     // Prompt for README attributes
+    let readmePageContent ="";
     inquirer
         .prompt(questions)
         .then(readmeData => {
-            console.log("README data", readmeData);
-            const readmePageContent = markdown.generateMarkdown(readmeData);
-            let fileName = "./dist/README.md";
-            writeToFile(fileName,readmePageContent);
+            readmePageContent = markdown.generateMarkdown(readmeData);
+
+            let fileName = readmeData.filename;
+            writeToFile(fileName, readmePageContent);
         }
         );
 }

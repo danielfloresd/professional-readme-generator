@@ -46,6 +46,7 @@ $("#generate-readme").on("click", function () {
         questions: questions,
         email: email,
         github: github,
+        website: website
     };
     // Check that all fields are filled out
     if (title === "" || description === "" || installation === "" || usage === "" || license === "" || contributing === "" || tests === "" || questions === "" || email === "" || github === "" || website === "") {
@@ -73,7 +74,6 @@ function generateReadmeHTML(data) {
     // Create README.md file
     markdown = generateMarkdown(data);
     var html = convertMarkdownToHtml(markdown);
-    console.log(html);
 
     $("#markdown-preview").text(markdown);
     $("#html-preview").html(html);
