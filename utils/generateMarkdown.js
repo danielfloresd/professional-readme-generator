@@ -123,7 +123,7 @@ ${renderLicenseSection(license)}
 ${renderSection('🤝Contributing', contributing)}
 ${renderSection('📃Tests', tests)}
 ${renderQuestionsSection(questions, github, email)}    
-${renderSection('🌐Website', 'Please visit my website at:')}   
+${renderSection('🌐Website', 'Please visit:')}   
 
 [${website}](${website})  
 

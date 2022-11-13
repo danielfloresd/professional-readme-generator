@@ -48,7 +48,7 @@ $("#generate-readme").on("click", function () {
         github: github,
     };
     // Check that all fields are filled out
-    if (title === "" || description === "" || installation === "" || usage === "" || license === "" || contributing === "" || tests === "" || questions === "" || username === "" || email === "" || github === "" || website === "") {
+    if (title === "" || description === "" || installation === "" || usage === "" || license === "" || contributing === "" || tests === "" || questions === "" || email === "" || github === "" || website === "") {
         // Make a list of the missing fields
         var missingFields = [];
         console.log("data", data);
