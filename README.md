@@ -25,6 +25,7 @@
 ## 🛠️Installation    
 <p>To install the application clone the repository https://github.com/danielfloresd/professional-readme-generator and run node package manager with the following command: node i    
 </p>      
+
 ## 💻Usage    
 <p>After installing all dependencies run $node.js index.js. The application can also be using aby opening index.html with your favorite web browser
 </p>
