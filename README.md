@@ -6,11 +6,9 @@
 
 <details>
 <summary>Watch Video</summary>
-<video controls autoplay>
-  <source src="./assets/images/Professional Readme Generator 640x480.mp4" type="video/mp4" width="640" height="480">
-</video> 
+  <img src="./assets/images/Professional Readme Generator.gif" width="640" height="480">
 </details>
-<a href="./assets/images/Professional Readme Generator 640x480.mp4">Download Video</a>
+<a href="./assets/images/Professional Readme Generator.mp4">Full Download Video</a>
 
 ## Table of contents
 
