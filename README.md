@@ -10,7 +10,7 @@
   <source src="./assets/images/Professional Readme Generator 640x480.mp4" type="video/mp4" width="640" height="480">
 </video> 
 </details>
-<a href="./assets/images/Professional Readme Generator.mp4">Download Video</a>
+<a href="./assets/images/Professional Readme Generator 640x480.mp4">Download Video</a>
 
 ## Table of contents
 
