@@ -4,7 +4,7 @@
 ## Description   
 <p>This application will that automatically generate a professional README.md markdown file for a project, based on information provided by the user. The application presents a series of prompts to the user to fill in sections in the README. The application supports input both from the command line with node.js or via a web interface</p>   
 <details><summary><b>Watch demo video</b></summary>
-<video width="640" height="480" controls autoplay>
+<video controls autoplay>
   <source src="./assets/images/screencast.webm" type="video/webm">
 </video> 
 </details>
