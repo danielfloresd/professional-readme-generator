@@ -6,7 +6,7 @@
 
 <details>
 <summary>Watch Video</summary>
-  <img src="./assets/images/Professional Readme Generator.gif" width="640" height="480">
+  <img src="./assets/images/Professional Readme Generator.gif" width="720">
 </details>
 <a href="./assets/images/Professional Readme Generator.mp4">Full Download Video</a>
 
