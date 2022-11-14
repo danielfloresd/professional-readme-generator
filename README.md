@@ -28,7 +28,7 @@
 <details>
 <img src="./assets/images/Professional Readme Generator.gif" width="840">
  <br>
-<a href="./assets/images/Professional Readme Generator.mp4">Full Video Download</a>
+<a href="https://github.com/danielfloresd/professional-readme-generator/raw/main/assets/images/Professional%20Readme%20Generator.mp4"">Full Video Download</a>
 </details>
 
 ## 🧩Dependencies   
