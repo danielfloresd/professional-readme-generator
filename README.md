@@ -29,6 +29,7 @@
 <img src="./assets/images/Professional Readme Generator.gif" width="840">
 <a href="./assets/images/Professional Readme Generator.mp4">Full Video Download</a>
 </details>
+
 ## 🧩Dependencies   
 * [Inquirer.js](https://www.npmjs.com/package/inquirer)
 * [Showdown.js](https://www.npmjs.com/package/showdown)
